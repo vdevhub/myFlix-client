@@ -27336,7 +27336,11 @@ const MainView = ()=>{
                 "Birth": "1928-07-26T00:00:00.000Z",
                 "Death": "1999-03-07T00:00:00.000Z"
             },
-            "Actors": [],
+            "Actors": [
+                "Keir Dullea ",
+                "Gary Lockwood ",
+                "William Sylvester "
+            ],
             "_id": "660cf4f4a8e808e3b590a916",
             "Title": "2001: A Space Odyssey",
             "Description": "Humanity finds a mysterious, obviously artificial object buried beneath the Lunar surface and, with the intelligent computer H.A.L. 9000, sets off on a quest.",
@@ -27354,7 +27358,12 @@ const MainView = ()=>{
                 "Birth": "1970-07-30T00:00:00.000Z",
                 "Death": null
             },
-            "Actors": [],
+            "Actors": [
+                "Christian Bale",
+                "Michael Caine",
+                "Heath Ledger",
+                "Gary Oldman"
+            ],
             "_id": "660cf026a8e808e3b590a90f",
             "Title": "The Dark Knight",
             "Description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
@@ -27372,7 +27381,12 @@ const MainView = ()=>{
                 "Birth": "1954-08-16T00:00:00.000Z",
                 "Death": null
             },
-            "Actors": [],
+            "Actors": [
+                "Tim Robbins",
+                "Morgan Freeman",
+                "Bob Gunton",
+                "William Sadler"
+            ],
             "_id": "660cf110a8e808e3b590a911",
             "Title": "The Shawshank Redemption",
             "Description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
@@ -27390,7 +27404,13 @@ const MainView = ()=>{
                 "Birth": "1946-12-18T00:00:00.000Z",
                 "Death": null
             },
-            "Actors": [],
+            "Actors": [
+                "Sam Neill",
+                "Laura Dern",
+                "Jeff Goldblum",
+                "Richard Attenborough",
+                "Bob Peck"
+            ],
             "_id": "660ced34a8e808e3b590a90c",
             "Title": "Jurassic Park",
             "Description": "An industrialist invites some experts to visit his theme park of cloned dinosaurs. After a power failure, the creatures run loose, putting everyone's lives, including his grandchildren's, in danger.",
@@ -27433,7 +27453,7 @@ const MainView = ()=>{
         columnNumber: 7
     }, undefined);
 };
-_s(MainView, "27b3a1HcLKZy3ssiv2diGvFFjSA=");
+_s(MainView, "Qpx9DdTYOAcYuNp3wvUn/aqC/EY=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -27565,12 +27585,9 @@ const MovieView = ({ movieData, onBackClick })=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    children: [
-                        "Director: ",
-                        movieData.Director.Name
-                    ]
-                }, void 0, true, {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                    children: "Director"
+                }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
                     lineNumber: 14,
                     columnNumber: 9
@@ -27583,8 +27600,8 @@ const MovieView = ({ movieData, onBackClick })=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                     children: [
-                        "Actors: ",
-                        movieData.Actors
+                        "Name: ",
+                        movieData.Director.Name
                     ]
                 }, void 0, true, {
                     fileName: "src/components/movie-view/movie-view.jsx",
@@ -27599,8 +27616,8 @@ const MovieView = ({ movieData, onBackClick })=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                     children: [
-                        "Genre: ",
-                        movieData.Genre.Name
+                        "Bio: ",
+                        movieData.Director.Bio
                     ]
                 }, void 0, true, {
                     fileName: "src/components/movie-view/movie-view.jsx",
@@ -27615,8 +27632,8 @@ const MovieView = ({ movieData, onBackClick })=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                     children: [
-                        "Genre Description: ",
-                        movieData.Genre.Description
+                        "Birth: ",
+                        movieData.Director.Birth
                     ]
                 }, void 0, true, {
                     fileName: "src/components/movie-view/movie-view.jsx",
@@ -27628,12 +27645,73 @@ const MovieView = ({ movieData, onBackClick })=>{
                 lineNumber: 22,
                 columnNumber: 7
             }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    children: [
+                        "Death: ",
+                        movieData.Director.Death
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 26,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 25,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                    children: "Genre"
+                }, void 0, false, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 29,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 28,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    children: [
+                        "Name: ",
+                        movieData.Genre.Name
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 32,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 31,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    children: [
+                        "Description: ",
+                        movieData.Genre.Description
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 35,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 34,
+                columnNumber: 7
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: onBackClick,
                 children: "Go Back"
             }, void 0, false, {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 25,
+                lineNumber: 37,
                 columnNumber: 7
             }, undefined)
         ]

@@ -15,7 +15,7 @@ export const MainView = () => {
         "Birth": "1928-07-26T00:00:00.000Z",
         "Death": "1999-03-07T00:00:00.000Z"
       },
-      "Actors": [],
+      "Actors": ['Keir Dullea ', 'Gary Lockwood ', 'William Sylvester '],
       "_id": "660cf4f4a8e808e3b590a916",
       "Title": "2001: A Space Odyssey",
       "Description": "Humanity finds a mysterious, obviously artificial object buried beneath the Lunar surface and, with the intelligent computer H.A.L. 9000, sets off on a quest.",
@@ -33,7 +33,7 @@ export const MainView = () => {
         "Birth": "1970-07-30T00:00:00.000Z",
         "Death": null
       },
-      "Actors": [],
+      "Actors": ['Christian Bale', 'Michael Caine', 'Heath Ledger', 'Gary Oldman'],
       "_id": "660cf026a8e808e3b590a90f",
       "Title": "The Dark Knight",
       "Description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
@@ -51,7 +51,7 @@ export const MainView = () => {
         "Birth": "1954-08-16T00:00:00.000Z",
         "Death": null
       },
-      "Actors": [],
+      "Actors": ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton', 'William Sadler'],
       "_id": "660cf110a8e808e3b590a911",
       "Title": "The Shawshank Redemption",
       "Description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
@@ -69,7 +69,7 @@ export const MainView = () => {
         "Birth": "1946-12-18T00:00:00.000Z",
         "Death": null
       },
-      "Actors": [],
+      "Actors": ['Sam Neill', 'Laura Dern', 'Jeff Goldblum', 'Richard Attenborough', 'Bob Peck'],
       "_id": "660ced34a8e808e3b590a90c",
       "Title": "Jurassic Park",
       "Description": "An industrialist invites some experts to visit his theme park of cloned dinosaurs. After a power failure, the creatures run loose, putting everyone's lives, including his grandchildren's, in danger.",
