@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MovieCard } from "../movie-card/movie-card";
+import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
   const [movies, setMovies] = useState([
@@ -18,7 +19,7 @@ export const MainView = () => {
       "_id": "660cf4f4a8e808e3b590a916",
       "Title": "2001: A Space Odyssey",
       "Description": "Humanity finds a mysterious, obviously artificial object buried beneath the Lunar surface and, with the intelligent computer H.A.L. 9000, sets off on a quest.",
-      "ImagePath": "2001aspaceodyssey.png",
+      "ImagePath": "https://upload.wikimedia.org/wikipedia/en/1/11/2001_A_Space_Odyssey_%281968%29.png",
       "Featured": true
     },
     {
@@ -36,7 +37,7 @@ export const MainView = () => {
       "_id": "660cf026a8e808e3b590a90f",
       "Title": "The Dark Knight",
       "Description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
-      "ImagePath": "thedarkknight.png",
+      "ImagePath": "https://upload.wikimedia.org/wikipedia/en/1/1c/The_Dark_Knight_%282008_film%29.jpg",
       "Featured": false
     },
     {
@@ -54,7 +55,7 @@ export const MainView = () => {
       "_id": "660cf110a8e808e3b590a911",
       "Title": "The Shawshank Redemption",
       "Description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-      "ImagePath": "shawshankredemption.png",
+      "ImagePath": "https://upload.wikimedia.org/wikipedia/en/8/81/ShawshankRedemptionMoviePoster.jpg",
       "Featured": true
     },
     {
@@ -63,19 +64,27 @@ export const MainView = () => {
         "Description": "Adventure films typically involve characters embarking on a journey or quest, often featuring excitement, exploration, and risk-taking."
       },
       "Director": {
-        "Name": "Billy Wilder",
-        "Bio": "Billy Wilder was an Austrian-American film director, screenwriter, and producer. He is regarded as one of the most brilliant and versatile filmmakers of the Hollywood Golden Age. Wilder's films are known for their sharp wit, cynical humor, and incisive commentary on society. Some of his most acclaimed works include Sunset Boulevard, Some Like It Hot, and The Apartment.",
-        "Birth": "1906-06-22T00:00:00.000Z",
-        "Death": "2002-03-27T00:00:00.000Z"
+        "Name": "Steven Spielberg",
+        "Bio": "Steven Allan Spielberg is an American film director, producer, and screenwriter. He is considered one of the founding pioneers of the New Hollywood era and one of the most popular directors and producers in film history. Spielberg's films have covered a wide range of genres, including adventure, science fiction, and historical dramas.",
+        "Birth": "1946-12-18T00:00:00.000Z",
+        "Death": null
       },
       "Actors": [],
-      "_id": "660cf441a8e808e3b590a915",
-      "Title": "Aliens",
-      "Description": "Fifty-seven years after surviving an apocalyptic attack aboard her space vessel by merciless space creatures, Officer Ripley awakens from hyper-sleep and tries to warn anyone who will listen about the predators.",
-      "ImagePath": "aliens.png",
+      "_id": "660ced34a8e808e3b590a90c",
+      "Title": "Jurassic Park",
+      "Description": "An industrialist invites some experts to visit his theme park of cloned dinosaurs. After a power failure, the creatures run loose, putting everyone's lives, including his grandchildren's, in danger.",
+      "ImagePath": "https://upload.wikimedia.org/wikipedia/en/e/e7/Jurassic_Park_poster.jpg",
       "Featured": true
     }
   ]);
+
+  const [selectedMovie, setSelectedMovie] = useState(null);
+
+  if (selectedMovie) {
+    return (
+      <MovieView movieData={selectedMovie} />
+    );
+  }
 
   if (movies.length === 0) {
     return <div>There is no movie to display!</div>;
@@ -84,7 +93,9 @@ export const MainView = () => {
       <div>
         {movies.map((movie) => {
           return (
-            <MovieCard key={movie._id} movieData={movie} />
+            <MovieCard key={movie._id} movieData={movie} onMovieClick={(newSelectedMovie) => {
+              setSelectedMovie(newSelectedMovie);
+            }} />
           );
         })}
       </div>
