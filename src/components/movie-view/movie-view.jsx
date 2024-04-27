@@ -38,3 +38,25 @@ export const MovieView = ({ movieData, onBackClick }) => {
     </div>
   );
 };
+
+MovieView.propTypes = {
+  movieData: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    Title: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string.isRequired,
+    Featured: PropTypes.bool.isRequired,
+
+    Genre: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired
+    }),
+    Director: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Bio: PropTypes.string.isRequired,
+      Birth: PropTypes.instanceOf(Date).isRequired,
+      Death: PropTypes.instanceOf(Date)
+    })
+  }).isRequired,
+  onBackClick: PropTypes.func.isRequired
+}
