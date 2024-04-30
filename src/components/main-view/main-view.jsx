@@ -7,8 +7,13 @@ export const MainView = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [user, setUser] = useState(null);
+  const [token, setToken] = useState(null);
 
   useEffect(() => {
+    if (!token) {
+      return;
+    }
+
     fetch("https://movies-myflix-api-84dbf8740f2d.herokuapp.com/movies")
       .then((response) => response.json())
       .then((data) => {
@@ -35,7 +40,7 @@ export const MainView = () => {
 
         setMovies(moviesFromApi);
       });
-  }, []);
+  }, [token]);
 
   if (!user) {
     return <LoginView />
