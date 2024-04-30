@@ -43,7 +43,7 @@ export const MainView = () => {
   }, [token]);
 
   if (!user) {
-    return <LoginView />
+    return <LoginView onLoggedIn={(user) => setUser(user)} />
   }
 
   if (selectedMovie) {
