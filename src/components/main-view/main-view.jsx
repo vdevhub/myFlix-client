@@ -57,6 +57,7 @@ export const MainView = () => {
   } else {
     return (
       <div>
+        <button onClick={() => { setUser(null); }}>Logout</button>
         {movies.map((movie) => {
           return (
             <MovieCard key={movie._id} movieData={movie} onMovieClick={(newSelectedMovie) => {
