@@ -4,14 +4,6 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 
 export const MainView = () => {
-
-  // const initUser = localStorage.getItem("user");
-  // console.log('User key in localStorage is: ' + initUser);
-
-  // if (typeof initUser === "undefined") {
-  //   localStorage.setItem("user", JSON.stringify({}));
-  // }
-
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const storedToken = localStorage.getItem("token");
   const [user, setUser] = useState(storedUser ? storedUser : null);
