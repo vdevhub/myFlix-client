@@ -15,14 +15,24 @@ export const LoginView = ({ onLoggedIn }) => {
 
     fetch("https://movies-myflix-api-84dbf8740f2d.herokuapp.com/login", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(data)
-    }).then((response) => {
-      if (response.ok) {
-        onLoggedIn(username);
-      } else {
-        alert("Login failed");
-      }
-    })
+    }).then((response) => response.json())
+      .then((loginData) => {
+        console.log("Login response received");
+        if (loginData.user) {
+          localStorage.setItem("user", JSON.stringify(loginData.user));
+          localStorage.setItem("token", loginData.token);
+          onLoggedIn(loginData.user, loginData.token);
+        } else {
+          alert("No such user");
+        }
+      })
+      .catch((e) => {
+        alert("Something went wrong");
+      })
   };
 
   return (
