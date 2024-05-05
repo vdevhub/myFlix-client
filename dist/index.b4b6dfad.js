@@ -29786,7 +29786,7 @@ const MovieView = ({ movieData, onBackClick })=>{
         return new Date(string).toLocaleDateString("en-US", options);
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "bg-light m-5",
+        className: "bg-light m-5 rounded-3",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
             className: "p-5",
             children: [
@@ -29967,6 +29967,7 @@ const MovieView = ({ movieData, onBackClick })=>{
                     md: 6,
                     className: "text-center",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                        className: "img-fluid",
                         src: movieData.ImagePath
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",

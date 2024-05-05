@@ -10,7 +10,7 @@ export const MovieView = ({ movieData, onBackClick }) => {
   }
 
   return (
-    <div className="bg-light m-5">
+    <div className="bg-light m-5 rounded-3">
       <Row className="p-5">
         <Col md={6}>
           <h2 className="mb-2">{movieData.Title}</h2>
@@ -34,7 +34,7 @@ export const MovieView = ({ movieData, onBackClick }) => {
           </Col>
         </Col>
         <Col md={6} className="text-center">
-          <img src={movieData.ImagePath} />
+          <img className="img-fluid" src={movieData.ImagePath} />
         </Col>
         <Col md={12}>
           <Button variant="primary" onClick={onBackClick}>Go Back</Button>
