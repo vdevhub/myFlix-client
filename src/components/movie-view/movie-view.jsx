@@ -17,7 +17,7 @@ export const MovieView = ({ movieData, onBackClick }) => {
           <Row className="mb-4 text-secondary">
             <Col md="auto"><h4>{movieData.Director.Name}</h4></Col>
             <Col></Col>
-            <Col md="auto"><h5>{movieData.Genre.Name}</h5></Col>
+            <Col md="auto"><h5 className="text-dark">{movieData.Genre.Name}</h5></Col>
           </Row>
           <Col md={12} className="mb-4">
             <p>{movieData.Description}</p>

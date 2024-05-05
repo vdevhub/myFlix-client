@@ -29811,6 +29811,7 @@ const MovieView = ({ movieData, onBackClick })=>{
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                     md: "auto",
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
+                                        className: "text-dark",
                                         children: movieData.Genre.Name
                                     }, void 0, false, {
                                         fileName: "src/components/movie-view/movie-view.jsx",
