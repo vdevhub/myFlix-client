@@ -66,7 +66,9 @@ export const MainView = () => {
         <div>There is no movie to display!</div>
       ) : (
         <>
-          <Button type="button" onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</Button>
+          <Col md={12}>
+            <Button className="m-4" type="button" onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</Button>
+          </Col>
           {movies.map((movie) => (
             <Col className="mb-4" key={movie._id} md={3}>
               <MovieCard movieData={movie} onMovieClick={(newSelectedMovie) => {
