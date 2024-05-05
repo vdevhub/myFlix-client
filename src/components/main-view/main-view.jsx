@@ -5,6 +5,7 @@ import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -65,7 +66,7 @@ export const MainView = () => {
         <div>There is no movie to display!</div>
       ) : (
         <>
-          <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
+          <Button type="button" onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</Button>
           {movies.map((movie) => (
             <Col className="mb-4" key={movie._id} md={3}>
               <MovieCard movieData={movie} onMovieClick={(newSelectedMovie) => {
