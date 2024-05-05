@@ -10,11 +10,11 @@ export const MovieView = ({ movieData, onBackClick }) => {
   }
 
   return (
-    <>
-      <Row className="m-5">
+    <div className="bg-light m-5">
+      <Row className="p-5">
         <Col md={6}>
           <h2 className="mb-2">{movieData.Title}</h2>
-          <Row className="mb-4">
+          <Row className="mb-4 text-secondary">
             <Col md="auto"><h4>{movieData.Director.Name}</h4></Col>
             <Col></Col>
             <Col md="auto"><h5>{movieData.Genre.Name}</h5></Col>
@@ -40,7 +40,7 @@ export const MovieView = ({ movieData, onBackClick }) => {
           <Button variant="primary" onClick={onBackClick}>Go Back</Button>
         </Col>
       </Row>
-    </>
+    </div>
 
 
 
