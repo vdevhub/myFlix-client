@@ -27536,29 +27536,44 @@ const MovieCard = ({ movieData, onMovieClick })=>{
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Body, {
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Title, {
-                        children: movieData.Title
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Title, {
+                                children: movieData.Title
+                            }, void 0, false, {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 11,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
+                                children: movieData.Description
+                            }, void 0, false, {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 12,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
                         fileName: "src/components/movie-card/movie-card.jsx",
                         lineNumber: 10,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
-                        children: movieData.Description
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "mt-4 text-center",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                            variant: "primary",
+                            onClick: ()=>{
+                                onMovieClick(movieData);
+                            },
+                            children: "Open"
+                        }, void 0, false, {
+                            fileName: "src/components/movie-card/movie-card.jsx",
+                            lineNumber: 15,
+                            columnNumber: 11
+                        }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 11,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                        variant: "primary",
-                        onClick: ()=>{
-                            onMovieClick(movieData);
-                        },
-                        children: "Open"
-                    }, void 0, false, {
-                        fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 12,
+                        lineNumber: 14,
                         columnNumber: 9
                     }, undefined)
                 ]
