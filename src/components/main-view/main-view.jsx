@@ -59,14 +59,14 @@ export const MainView = () => {
           <SignupView />
         </Col>
       ) : selectedMovie ? (
-        <Col md={8}>
+        <Col md={10}>
           <MovieView movieData={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
         </Col>
       ) : movies.length === 0 ? (
         <div>There is no movie to display!</div>
       ) : (
         <>
-          <Col md={12}>
+          <Col md={12} className="text-center">
             <Button className="m-4" type="button" onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</Button>
           </Col>
           {movies.map((movie) => (
