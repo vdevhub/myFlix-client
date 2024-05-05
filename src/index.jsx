@@ -8,11 +8,9 @@ import "./index.scss";
 // Main component (will eventually use all the others)
 const MyFlixApplication = () => {
   return (
-    <div className="bg-dark">
-      <Container>
-        <MainView />
-      </Container>
-    </div>
+    <Container>
+      <MainView />
+    </Container>
   )
 };
 

@@ -73,8 +73,8 @@
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
   --bs-body-color-rgb: 33, 37, 41;
-  --bs-body-bg: #fff;
-  --bs-body-bg-rgb: 255, 255, 255;
+  --bs-body-bg: #15181f;
+  --bs-body-bg-rgb: 21, 24, 31;
   --bs-emphasis-color: #000;
   --bs-emphasis-color-rgb: 0, 0, 0;
   --bs-secondary-color: #212529bf;
@@ -2255,11 +2255,11 @@ progress {
 }
 
 .form-control {
-  color: var(--bs-body-color);
+  color: #dc143c;
   appearance: none;
-  background-color: var(--bs-body-bg);
   border: var(--bs-border-width) solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
+  background-color: #fff;
   background-clip: padding-box;
   width: 100%;
   padding: .375rem .75rem;
@@ -2285,8 +2285,8 @@ progress {
 }
 
 .form-control:focus {
-  color: var(--bs-body-color);
-  background-color: var(--bs-body-bg);
+  color: #dc143c;
+  background-color: #fff;
   border-color: #ee8a9e;
   outline: 0;
   box-shadow: 0 0 0 .25rem #dc143c40;
@@ -2314,7 +2314,7 @@ progress {
 }
 
 .form-control::file-selector-button {
-  color: var(--bs-body-color);
+  color: #dc143c;
   background-color: var(--bs-tertiary-bg);
   pointer-events: none;
   border-color: inherit;
@@ -2427,9 +2427,9 @@ textarea.form-control-lg {
 
 .form-select {
   --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
-  color: var(--bs-body-color);
+  color: #dc143c;
   appearance: none;
-  background-color: var(--bs-body-bg);
+  background-color: #fff;
   background-image: var(--bs-form-select-bg-img), var(--bs-form-select-bg-icon, none);
   border: var(--bs-border-width) solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
@@ -2468,7 +2468,7 @@ textarea.form-control-lg {
 
 .form-select:-moz-focusring {
   color: #0000;
-  text-shadow: 0 0 0 var(--bs-body-color);
+  text-shadow: 0 0 #dc143c;
 }
 
 .form-select-sm {
@@ -2516,7 +2516,7 @@ textarea.form-control-lg {
 }
 
 .form-check-input {
-  --bs-form-check-bg: var(--bs-body-bg);
+  --bs-form-check-bg: White;
   vertical-align: top;
   appearance: none;
   background-color: var(--bs-form-check-bg);
@@ -2653,11 +2653,11 @@ textarea.form-control-lg {
 }
 
 .form-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 .25rem #dc143c40;
+  box-shadow: 0 0 0 1px #15181f, 0 0 0 .25rem #dc143c40;
 }
 
 .form-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 .25rem #dc143c40;
+  box-shadow: 0 0 0 1px #15181f, 0 0 0 .25rem #dc143c40;
 }
 
 .form-range::-moz-focus-outer {
@@ -2796,8 +2796,8 @@ textarea.form-control-lg {
 .form-floating > .form-control:focus ~ label:after, .form-floating > .form-control:not(:placeholder-shown) ~ label:after, .form-floating > .form-control-plaintext ~ label:after, .form-floating > .form-select ~ label:after {
   z-index: -1;
   content: "";
-  background-color: var(--bs-body-bg);
   border-radius: var(--bs-border-radius);
+  background-color: #fff;
   height: 1.5em;
   position: absolute;
   inset: 1rem .375rem;
@@ -2849,7 +2849,7 @@ textarea.form-control-lg {
 }
 
 .input-group-text {
-  color: var(--bs-body-color);
+  color: #dc143c;
   text-align: center;
   white-space: nowrap;
   background-color: var(--bs-tertiary-bg);

@@ -52,7 +52,8 @@ export const MainView = () => {
   return (
     <Row className="justify-content-md-center">
       {!user ? (
-        <Col md={5}>
+        <Col md={5} className="m-5 text-light">
+          <h1 className="text-center mb-5">Welcome to myFlix</h1>
           <h2>Login</h2>
           <LoginView onLoggedIn={(user, token) => { setUser(user); setToken(token) }} />
           <h2>Sign Up</h2>
