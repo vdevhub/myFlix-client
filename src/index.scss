@@ -1,5 +1,16 @@
-$color: steelblue;
+$primary: Crimson;
+$body-bg: #15181f;
+$input-bg: White;
+$input-color: Crimson;
 
-.my-flix {
-  color: $color;
+@import '~bootstrap/scss/bootstrap.scss';
+
+.card-img-top {
+  height: 22rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

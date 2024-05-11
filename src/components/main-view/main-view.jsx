@@ -3,6 +3,9 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -46,34 +49,36 @@ export const MainView = () => {
       });
   }, [token]);
 
-  if (!user) {
-    return (
-      <>
-        <LoginView onLoggedIn={(user, token) => { setUser(user); setToken(token) }} /> or <SignupView />
-      </>
-    )
-  }
-
-  if (selectedMovie) {
-    return (
-      <MovieView movieData={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
-    );
-  }
-
-  if (movies.length === 0) {
-    return <div>There is no movie to display!</div>;
-  } else {
-    return (
-      <div>
-        <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
-        {movies.map((movie) => {
-          return (
-            <MovieCard key={movie._id} movieData={movie} onMovieClick={(newSelectedMovie) => {
-              setSelectedMovie(newSelectedMovie);
-            }} />
-          );
-        })}
-      </div>
-    );
-  }
+  return (
+    <Row className="justify-content-md-center">
+      {!user ? (
+        <Col md={5} className="m-5 text-light">
+          <h1 className="text-center mb-5">Welcome to myFlix</h1>
+          <h2>Login</h2>
+          <LoginView onLoggedIn={(user, token) => { setUser(user); setToken(token) }} />
+          <h2>Sign Up</h2>
+          <SignupView />
+        </Col>
+      ) : selectedMovie ? (
+        <Col md={10}>
+          <MovieView movieData={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+        </Col>
+      ) : movies.length === 0 ? (
+        <div>There is no movie to display!</div>
+      ) : (
+        <>
+          <Col md={12} className="text-center">
+            <Button className="m-4" type="button" onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</Button>
+          </Col>
+          {movies.map((movie) => (
+            <Col className="mb-4" key={movie._id} md={3}>
+              <MovieCard movieData={movie} onMovieClick={(newSelectedMovie) => {
+                setSelectedMovie(newSelectedMovie);
+              }} />
+            </Col>
+          ))}
+        </>
+      )}
+    </Row>
+  );
 };
