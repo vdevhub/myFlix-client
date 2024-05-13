@@ -14,7 +14,6 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     if (!token) {
@@ -124,38 +123,5 @@ export const MainView = () => {
         </Routes>
       </Row>
     </BrowserRouter>
-
-
-
-    // <Row className="justify-content-md-center">
-    //   {!user ? (
-    //     <Col md={5} className="m-5 text-light">
-    //       <h1 className="text-center mb-5">Welcome to myFlix</h1>
-    //       <h2>Login</h2>
-    //       <LoginView onLoggedIn={(user, token) => { setUser(user); setToken(token) }} />
-    //       <h2>Sign Up</h2>
-    //       <SignupView />
-    //     </Col>
-    //   ) : selectedMovie ? (
-    //     <Col md={10}>
-    //       <MovieView movieData={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
-    //     </Col>
-    //   ) : movies.length === 0 ? (
-    //     <div>There is no movie to display!</div>
-    //   ) : (
-    // <>
-    //   <Col md={12} className="text-center">
-    //     <Button className="m-4" type="button" onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</Button>
-    //   </Col>
-    //   {movies.map((movie) => (
-    //     <Col className="mb-4" key={movie._id} md={3}>
-    //       <MovieCard movieData={movie} onMovieClick={(newSelectedMovie) => {
-    //         setSelectedMovie(newSelectedMovie);
-    //       }} />
-    //     </Col>
-    //   ))}
-    // </>
-    //   )}
-    // </Row>
   );
 };
