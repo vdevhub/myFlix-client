@@ -27735,8 +27735,7 @@ MovieCard.propTypes = {
             Birth: (0, _propTypesDefault.default).string.isRequired,
             Death: (0, _propTypesDefault.default).string
         })
-    }).isRequired,
-    onMovieClick: (0, _propTypesDefault.default).func.isRequired
+    }).isRequired
 };
 var _c;
 $RefreshReg$(_c, "MovieCard");
@@ -36847,7 +36846,7 @@ _s(MovieView, "e2L2DPdRH1AShA7yIOCsYRlzvlI=", false, function() {
 });
 _c = MovieView;
 MovieView.propTypes = {
-    movieData: (0, _propTypesDefault.default).shape({
+    movies: (0, _propTypesDefault.default).arrayOf((0, _propTypesDefault.default).shape({
         _id: (0, _propTypesDefault.default).string.isRequired,
         Title: (0, _propTypesDefault.default).string.isRequired,
         Description: (0, _propTypesDefault.default).string.isRequired,
@@ -36863,8 +36862,7 @@ MovieView.propTypes = {
             Birth: (0, _propTypesDefault.default).string.isRequired,
             Death: (0, _propTypesDefault.default).string
         })
-    }).isRequired,
-    onBackClick: (0, _propTypesDefault.default).func.isRequired
+    })).isRequired
 };
 var _c;
 $RefreshReg$(_c, "MovieView");

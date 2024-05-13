@@ -48,19 +48,11 @@ export const MovieView = ({ movies }) => {
         </Col>
       </Row>
     </div>
-
-
-
-    //   <div>
-    //     <p>Description: {movieData.Genre.Description}</p>
-    //   </div>
-    //   <Button variant="primary" onClick={onBackClick}>Go Back</Button>
-    // </div>
   );
 };
 
 MovieView.propTypes = {
-  movieData: PropTypes.shape({
+  movies: PropTypes.arrayOf(PropTypes.shape({
     _id: PropTypes.string.isRequired,
     Title: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired,
@@ -76,6 +68,5 @@ MovieView.propTypes = {
       Birth: PropTypes.string.isRequired,
       Death: PropTypes.string
     })
-  }).isRequired,
-  onBackClick: PropTypes.func.isRequired
+  })).isRequired
 }
