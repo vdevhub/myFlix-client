@@ -2,8 +2,13 @@ import PropTypes from 'prop-types';
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
-export const MovieView = ({ movieData, onBackClick }) => {
+export const MovieView = ({ movies }) => {
+  const { movieId } = useParams();
+  const movieData = movies.find((mov) => mov._id === movieId);
+
   function formatDate(string) {
     var options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(string).toLocaleDateString("en-US", options);
@@ -37,7 +42,9 @@ export const MovieView = ({ movieData, onBackClick }) => {
           <img className="img-fluid" src={movieData.ImagePath} />
         </Col>
         <Col md={12}>
-          <Button variant="primary" onClick={onBackClick}>Go Back</Button>
+          <Link to={`/`}>
+            <Button variant="primary">Go Back</Button>
+          </Link>
         </Col>
       </Row>
     </div>

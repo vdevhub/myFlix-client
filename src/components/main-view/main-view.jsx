@@ -94,7 +94,7 @@ export const MainView = () => {
                   <div>There is no movie to display!</div>
                 ) : (
                   <Col md={10}>
-                    <MovieView />
+                    <MovieView movies={movies} />
                   </Col>
                 )}
               </>
