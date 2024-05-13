@@ -53,7 +53,7 @@ export const MainView = () => {
   return (
     <BrowserRouter>
       <NavigationBar user={user} onLoggedOut={() => { setUser(null); setToken(null); localStorage.clear(); }} />
-      <Row className="justify-content-md-center">
+      <Row className="justify-content-md-center pt-5">
         <Routes>
           <Route
             path="/signup"
@@ -109,9 +109,7 @@ export const MainView = () => {
                 <div>There is no movie to display!</div>
               ) : (
                 <>
-                  <Col md={12} className="text-center">
-                    <Button className="m-4" type="button" onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</Button>
-                  </Col>
+                  <Col md={12} className="text-center pt-5"></Col>
                   {movies.map((movie) => (
                     <Col className="mb-4" key={movie._id} md={3}>
                       <MovieCard movieData={movie} />
