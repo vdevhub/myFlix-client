@@ -3,6 +3,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
+import { ProfileView } from "../profile-view/profile-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
@@ -119,7 +120,16 @@ export const MainView = () => {
               )}
               </>
             } />
-          <Route path="" element={<></>} />
+          <Route path="/profile" element={
+            <>
+              {!user ? (
+                <Navigate to="/login" replace />
+              ) : (
+                <Col md={10} className="pt-5">
+                  <ProfileView user={user} />
+                </Col>
+              )}
+            </>} />
         </Routes>
       </Row>
     </BrowserRouter>
