@@ -13,7 +13,7 @@ export const MovieCard = ({ movieData }) => {
           <Card.Text>{movieData.Description}</Card.Text>
         </div>
         <div className="mt-4 text-center">
-          <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
+          <Link to={`/movies/${encodeURIComponent(movieData._id)}`}>
             <Button variant="primary">Open</Button>
           </Link>
         </div>
