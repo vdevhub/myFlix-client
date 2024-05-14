@@ -4,18 +4,23 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-export const FavouriteMovies = ({ favouriteMovieList }) => {
+export const FavouriteMovies = ({ favouriteMovieList, user, onFavouritesUpdate }) => {
   return (
-    <div>
-      <h2>Favourite Movies</h2>
-      {favouriteMovieList.map((movie) => {
-        return (
-          <Col className="mb-4" key={movie._id} md={3}>
-            <MovieCard movieData={movie} />
-            <button variant="secondary" onClick={() => removeFav(movie._id)}>Remove from list</button>
-          </Col>
-        )
-      })}
-    </div>
+    <>
+      <Row>
+        <Col>
+          <h2>Favourite Movies</h2>
+        </Col>
+      </Row>
+      <Row>
+        {favouriteMovieList.map((movie) => {
+          return (
+            <Col className="mb-4" key={movie._id} md={3}>
+              <MovieCard movieData={movie} user={user} onFavouritesUpdate={onFavouritesUpdate} />
+            </Col>
+          )
+        })}
+      </Row>
+    </>
   )
 };

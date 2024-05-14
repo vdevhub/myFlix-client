@@ -107,8 +107,12 @@ export const AccountDetails = ({ user, onAccountUpdate }) => {
   )
 }
 AccountDetails.propTypes = {
-  formData: PropTypes.object.isRequired,
-  handleUpdate: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  handleDeleteAccount: PropTypes.func.isRequired
+  user: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    FavouriteMovies: PropTypes.arrayOf(PropTypes.string)
+  }).isRequired,
+  onAccountUpdate: PropTypes.func.isRequired
 };

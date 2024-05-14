@@ -109,10 +109,10 @@ export const MainView = () => {
                 <div>There is no movie to display!</div>
               ) : (
                 <>
-                  <Col md={12} className="text-center pt-5"></Col>
+                  <Col md={12} className="pt-5"></Col>
                   {movies.map((movie) => (
                     <Col className="mb-4" key={movie._id} md={3}>
-                      <MovieCard movieData={movie} />
+                      <MovieCard movieData={movie} user={user} onFavouritesUpdate={(user) => { setUser(user) }} />
                     </Col>
                   ))}
                 </>
@@ -124,8 +124,8 @@ export const MainView = () => {
               {!user ? (
                 <Navigate to="/login" replace />
               ) : (
-                <Col className="pt-5">
-                  <ProfileView user={user} movies={movies} onAccountUpdate={(user) => { setUser(user) }} />
+                <Col md={12} className="pt-5 text-light">
+                  <ProfileView user={user} movies={movies} onAccountUpdate={(user) => { setUser(user) }} onFavouritesUpdate={(user) => { setUser(user) }} />
                 </Col>
               )}
             </>} />
