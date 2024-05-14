@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 export const ProfileView = ({ user, movies, onAccountUpdate, onFavouritesUpdate }) => {
-  const favouriteMovieList = undefined ? [] : movies.filter(m => user.FavouriteMovies.includes(m._id));
+  const favouriteMovieList = movies.filter(m => user.FavouriteMovies.includes(m._id));
 
   return (
     <Container>
