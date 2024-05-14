@@ -125,7 +125,7 @@ export const MainView = () => {
                 <Navigate to="/login" replace />
               ) : (
                 <Col className="pt-5">
-                  <ProfileView user={user} movies={movies} />
+                  <ProfileView user={user} movies={movies} onAccountUpdate={(user) => { setUser(user) }} />
                 </Col>
               )}
             </>} />

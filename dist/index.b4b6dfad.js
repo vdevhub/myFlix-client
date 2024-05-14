@@ -27590,7 +27590,10 @@ const MainView = ()=>{
                                     className: "pt-5",
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileView.ProfileView), {
                                         user: user,
-                                        movies: movies
+                                        movies: movies,
+                                        onAccountUpdate: (user)=>{
+                                            setUser(user);
+                                        }
                                     }, void 0, false, {
                                         fileName: "src/components/main-view/main-view.jsx",
                                         lineNumber: 128,
@@ -42398,78 +42401,49 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ProfileView", ()=>ProfileView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _accountUpdate = require("./account-update");
+var _accountDetails = require("./account-details");
 var _favouriteMovies = require("./favourite-movies");
 var _col = require("react-bootstrap/Col");
 var _colDefault = parcelHelpers.interopDefault(_col);
-const ProfileView = ({ user, movies })=>{
-    const formData = {
-        username: user.Username,
-        email: user.Email,
-        birthday: user.Birthday,
-        password: user.Password
-    };
-    const handleUpdate = (e)=>{
-        switch(e.target.type){
-            case "text":
-                setUsername(e.target.value);
-                break;
-            case "email":
-                setEmail(e.target.value);
-                break;
-            case "password":
-                setPassword(e.target.value);
-                break;
-            case "date":
-                setBirthdate(e.target.value);
-            default:
-        }
-    };
-    // Function to handle form submission
-    const handleSubmit = async (event)=>{
-        event.preventDefault();
-        try {
-            const response = await fetch(`https://movies-myflix-api-84dbf8740f2d.herokuapp.com/users/${user._id}`, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formData)
-            });
-            if (!response.ok) throw new Error("Failed to update user data");
-            // Assuming the response contains updated user data
-            const updatedUserData = await response.json();
-            setUser(updatedUserData);
-        // Optionally, you can display a success message or reset the form here
-        } catch (error) {
-            console.error("Error updating user data:", error);
-        // Optionally, you can display an error message here
-        }
-    };
+const ProfileView = ({ user, movies, onAccountUpdate })=>{
     const favouriteMovieList = movies.filter((m)=>user.FavouriteMovies.includes(m._id));
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                 md: 6,
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _accountUpdate.AccountUpdate), {
-                    formData: formData,
-                    handleUpdate: handleUpdate,
-                    handleSubmit: handleSubmit
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                        children: "Account Information"
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/profile-view.jsx",
+                        lineNumber: 11,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _accountDetails.AccountDetails), {
+                        user: user,
+                        onAccountUpdate: onAccountUpdate
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/profile-view.jsx",
+                        lineNumber: 12,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/profile-view/profile-view.jsx",
+                lineNumber: 10,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _favouriteMovies.FavouriteMovies), {
+                    favouriteMovieList: favouriteMovieList
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 59,
+                    lineNumber: 15,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 58,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _favouriteMovies.FavouriteMovies), {
-                favouriteMovieList: favouriteMovieList
-            }, void 0, false, {
-                fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 61,
+                lineNumber: 14,
                 columnNumber: 7
             }, undefined)
         ]
@@ -42484,186 +42458,7 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC","./account-update":"7xIh7","./favourite-movies":"9FAJ6","react-bootstrap/Col":"2L2I6"}],"7xIh7":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$bd24 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$bd24.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "AccountUpdate", ()=>AccountUpdate);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _button = require("react-bootstrap/Button");
-var _buttonDefault = parcelHelpers.interopDefault(_button);
-var _form = require("react-bootstrap/Form");
-var _formDefault = parcelHelpers.interopDefault(_form);
-var _row = require("react-bootstrap/Row");
-var _rowDefault = parcelHelpers.interopDefault(_row);
-const AccountUpdate = ({ formData, handleUpdate, handleSubmit, handleDeleteAccount })=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
-        onSubmit: handleSubmit,
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: "Account Information"
-            }, void 0, false, {
-                fileName: "src/components/profile-view/account-update.jsx",
-                lineNumber: 10,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
-                className: "mb-2",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
-                        children: "Username:"
-                    }, void 0, false, {
-                        fileName: "src/components/profile-view/account-update.jsx",
-                        lineNumber: 12,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
-                        type: "text",
-                        minLength: 4,
-                        value: formData.username,
-                        onChange: (e)=>handleUpdate(e),
-                        required: true
-                    }, void 0, false, {
-                        fileName: "src/components/profile-view/account-update.jsx",
-                        lineNumber: 13,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/profile-view/account-update.jsx",
-                lineNumber: 11,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
-                className: "mb-2",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
-                        children: "Password:"
-                    }, void 0, false, {
-                        fileName: "src/components/profile-view/account-update.jsx",
-                        lineNumber: 22,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
-                        type: "password",
-                        minLength: 10,
-                        value: formData.password,
-                        onChange: (e)=>handleUpdate(e),
-                        required: true
-                    }, void 0, false, {
-                        fileName: "src/components/profile-view/account-update.jsx",
-                        lineNumber: 24,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/profile-view/account-update.jsx",
-                lineNumber: 21,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
-                className: "mb-2",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
-                        children: " Email: "
-                    }, void 0, false, {
-                        fileName: "src/components/profile-view/account-update.jsx",
-                        lineNumber: 33,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
-                        type: "email",
-                        value: formData.email,
-                        onChange: (e)=>handleUpdate(e),
-                        required: true
-                    }, void 0, false, {
-                        fileName: "src/components/profile-view/account-update.jsx",
-                        lineNumber: 34,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/profile-view/account-update.jsx",
-                lineNumber: 32,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
-                className: "mb-4",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
-                        children: "Birthdate:"
-                    }, void 0, false, {
-                        fileName: "src/components/profile-view/account-update.jsx",
-                        lineNumber: 42,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
-                        type: "date",
-                        value: formData.birthday.slice(0, 10),
-                        onChange: (e)=>handleUpdate(e),
-                        required: true
-                    }, void 0, false, {
-                        fileName: "src/components/profile-view/account-update.jsx",
-                        lineNumber: 43,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/profile-view/account-update.jsx",
-                lineNumber: 41,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                variant: "primary",
-                type: "submit",
-                children: "Update"
-            }, void 0, false, {
-                fileName: "src/components/profile-view/account-update.jsx",
-                lineNumber: 50,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                onClick: ()=>handleDeleteAccount(),
-                variant: "outline-secondary",
-                className: "mx-3",
-                children: "Delete account"
-            }, void 0, false, {
-                fileName: "src/components/profile-view/account-update.jsx",
-                lineNumber: 51,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/profile-view/account-update.jsx",
-        lineNumber: 9,
-        columnNumber: 5
-    }, undefined);
-};
-_c = AccountUpdate;
-AccountUpdate.propTypes = {
-    formData: (0, _propTypesDefault.default).object.isRequired,
-    handleUpdate: (0, _propTypesDefault.default).func.isRequired,
-    handleSubmit: (0, _propTypesDefault.default).func.isRequired,
-    handleDeleteAccount: (0, _propTypesDefault.default).func.isRequired
-};
-var _c;
-$RefreshReg$(_c, "AccountUpdate");
-
-  $parcel$ReactRefreshHelpers$bd24.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC","react":"21dqq","prop-types":"7wKI2","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","react-bootstrap/Row":"cMC39"}],"9FAJ6":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC","./favourite-movies":"9FAJ6","react-bootstrap/Col":"2L2I6","./account-details":"4TvHV"}],"9FAJ6":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$7fc5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -42692,46 +42487,34 @@ const FavouriteMovies = ({ favouriteMovieList })=>{
                 lineNumber: 10,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _containerDefault.default), {
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
-                    children: favouriteMovieList.map((movie)=>{
-                        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-                            className: "mb-4",
-                            md: 3,
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                                    movieData: movie
-                                }, void 0, false, {
-                                    fileName: "src/components/profile-view/favourite-movies.jsx",
-                                    lineNumber: 16,
-                                    columnNumber: 17
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                    variant: "secondary",
-                                    onClick: ()=>removeFav(movie._id),
-                                    children: "Remove from list"
-                                }, void 0, false, {
-                                    fileName: "src/components/profile-view/favourite-movies.jsx",
-                                    lineNumber: 17,
-                                    columnNumber: 17
-                                }, undefined)
-                            ]
-                        }, movie._id, true, {
+            favouriteMovieList.map((movie)=>{
+                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                    className: "mb-4",
+                    md: 3,
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                            movieData: movie
+                        }, void 0, false, {
+                            fileName: "src/components/profile-view/favourite-movies.jsx",
+                            lineNumber: 14,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            variant: "secondary",
+                            onClick: ()=>removeFav(movie._id),
+                            children: "Remove from list"
+                        }, void 0, false, {
                             fileName: "src/components/profile-view/favourite-movies.jsx",
                             lineNumber: 15,
-                            columnNumber: 15
-                        }, undefined);
-                    })
-                }, void 0, false, {
+                            columnNumber: 13
+                        }, undefined)
+                    ]
+                }, movie._id, true, {
                     fileName: "src/components/profile-view/favourite-movies.jsx",
-                    lineNumber: 12,
-                    columnNumber: 9
-                }, undefined)
-            }, void 0, false, {
-                fileName: "src/components/profile-view/favourite-movies.jsx",
-                lineNumber: 11,
-                columnNumber: 7
-            }, undefined)
+                    lineNumber: 13,
+                    columnNumber: 11
+                }, undefined);
+            })
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/favourite-movies.jsx",
@@ -42748,6 +42531,250 @@ $RefreshReg$(_c, "FavouriteMovies");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC","../movie-card/movie-card":"bwuIu","react-bootstrap/Container":"hEdsw","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6"}]},["1GoAO","dAPVv","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC","../movie-card/movie-card":"bwuIu","react-bootstrap/Container":"hEdsw","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6"}],"4TvHV":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$9677 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$9677.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "AccountDetails", ()=>AccountDetails);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _form = require("react-bootstrap/Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
+var _row = require("react-bootstrap/Row");
+var _rowDefault = parcelHelpers.interopDefault(_row);
+var _s = $RefreshSig$();
+const AccountDetails = ({ user, onAccountUpdate })=>{
+    _s();
+    const [id] = (0, _react.useState)(user._id);
+    const [username, setUsername] = (0, _react.useState)(user.Username);
+    const [password, setPassword] = (0, _react.useState)("");
+    const [email, setEmail] = (0, _react.useState)(user.Email);
+    const [birthday, setBirthday] = (0, _react.useState)(user.Birthday);
+    const token = localStorage.getItem("token");
+    const profileFormData = {
+        id: id,
+        Username: username,
+        Email: email,
+        Birthday: birthday.slice(0, 10),
+        Password: password
+    };
+    const handleUpdate = (e)=>{
+        switch(e.target.type){
+            case "text":
+                setUsername(e.target.value);
+                break;
+            case "email":
+                setEmail(e.target.value);
+                break;
+            case "password":
+                setPassword(e.target.value);
+                break;
+            case "date":
+                setBirthday(e.target.value.slice(0, 10));
+            default:
+        }
+    };
+    // Function to handle form submission
+    const handleSubmit = async (event)=>{
+        event.preventDefault();
+        fetch(`https://movies-myflix-api-84dbf8740f2d.herokuapp.com/users/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(profileFormData)
+        }).then((response)=>response.json()).then((updatedUser)=>{
+            if (updatedUser) {
+                localStorage.setItem("user", JSON.stringify(updatedUser));
+                onAccountUpdate(updatedUser);
+                alert("Account updated successfully.");
+            } else alert("No such user");
+        }).catch((e)=>{
+            alert("Something went wrong");
+        });
+    };
+    const handleDeleteAccount = ()=>{
+        fetch(`https://movies-myflix-api-84dbf8740f2d.herokuapp.com/users/${id}`, {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            }
+        }).then((response)=>{
+            if (response.ok) {
+                alert("Account deleted successfully.");
+                localStorage.clear();
+                window.location.reload();
+            } else alert("Something went wrong.");
+        });
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
+        onSubmit: handleSubmit,
+        className: "mb-5",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
+                className: "mb-2",
+                controlId: "profileFormUsername",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
+                        children: "Username:"
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/account-details.jsx",
+                        lineNumber: 88,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
+                        type: "text",
+                        minLength: "8",
+                        value: profileFormData.Username,
+                        onChange: (e)=>handleUpdate(e),
+                        required: true
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/account-details.jsx",
+                        lineNumber: 89,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/profile-view/account-details.jsx",
+                lineNumber: 87,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
+                className: "mb-2",
+                controlId: "profileFormPassword",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
+                        children: "Password (add new password if you wish to change):"
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/account-details.jsx",
+                        lineNumber: 92,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
+                        type: "password",
+                        minLength: "10",
+                        value: profileFormData.Password,
+                        onChange: (e)=>handleUpdate(e),
+                        required: true
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/account-details.jsx",
+                        lineNumber: 94,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/profile-view/account-details.jsx",
+                lineNumber: 91,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
+                className: "mb-2",
+                controlId: "profileFormEmail",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
+                        children: " Email: "
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/account-details.jsx",
+                        lineNumber: 97,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
+                        type: "email",
+                        value: profileFormData.Email,
+                        onChange: (e)=>handleUpdate(e),
+                        required: true
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/account-details.jsx",
+                        lineNumber: 98,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/profile-view/account-details.jsx",
+                lineNumber: 96,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
+                className: "mb-2",
+                controlId: "profileFormBirthday",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
+                        children: "Birthdate:"
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/account-details.jsx",
+                        lineNumber: 101,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
+                        type: "date",
+                        value: profileFormData.Birthday.slice(0, 10),
+                        onChange: (e)=>handleUpdate(e),
+                        required: true
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/account-details.jsx",
+                        lineNumber: 102,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/profile-view/account-details.jsx",
+                lineNumber: 100,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                variant: "primary",
+                type: "submit",
+                children: "Update"
+            }, void 0, false, {
+                fileName: "src/components/profile-view/account-details.jsx",
+                lineNumber: 104,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                onClick: ()=>handleDeleteAccount(),
+                variant: "outline-secondary",
+                className: "mx-3",
+                children: " Delete account "
+            }, void 0, false, {
+                fileName: "src/components/profile-view/account-details.jsx",
+                lineNumber: 105,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/profile-view/account-details.jsx",
+        lineNumber: 86,
+        columnNumber: 5
+    }, undefined);
+};
+_s(AccountDetails, "iGjgN1sIuX0gmpF92OA4K251P9k=");
+_c = AccountDetails;
+AccountDetails.propTypes = {
+    formData: (0, _propTypesDefault.default).object.isRequired,
+    handleUpdate: (0, _propTypesDefault.default).func.isRequired,
+    handleSubmit: (0, _propTypesDefault.default).func.isRequired,
+    handleDeleteAccount: (0, _propTypesDefault.default).func.isRequired
+};
+var _c;
+$RefreshReg$(_c, "AccountDetails");
+
+  $parcel$ReactRefreshHelpers$9677.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","react-bootstrap/Row":"cMC39","@parcel/transformer-js/src/esmodule-helpers.js":"fD7H8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"fDiVC"}]},["1GoAO","dAPVv","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
