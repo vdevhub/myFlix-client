@@ -6,7 +6,6 @@ import { SignupView } from "../signup-view/signup-view";
 import { ProfileView } from "../profile-view/profile-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 
@@ -125,8 +124,8 @@ export const MainView = () => {
               {!user ? (
                 <Navigate to="/login" replace />
               ) : (
-                <Col md={10} className="pt-5">
-                  <ProfileView user={user} />
+                <Col className="pt-5">
+                  <ProfileView user={user} movies={movies} />
                 </Col>
               )}
             </>} />
