@@ -1,10 +1,59 @@
+import { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
 
-export const MovieCard = ({ movieData, onMovieClick }) => {
+export const MovieCard = ({ movieData, user, onFavouritesUpdate }) => {
+  // State to track whether the movie is in favorites
+  const [isFavorite, setIsFavorite] = useState(false);
+  const token = localStorage.getItem('token');
+
+  // Function to toggle favorite status
+  const toggleFavorite = async (event) => {
+    event.preventDefault();
+
+    methodType = isFavorite ? "DELETE" : "POST";
+
+    fetch(`https://movies-myflix-api-84dbf8740f2d.herokuapp.com/users/${user._id}/${movieData._id}`, {
+      method: methodType,
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    }).then((response) => response.json())
+      .then((updatedUser) => {
+        if (updatedUser) {
+          localStorage.setItem("user", JSON.stringify(updatedUser));
+          onFavouritesUpdate(updatedUser);
+          setIsFavorite(!isFavorite);
+        } else {
+          alert("No such user");
+        }
+      })
+      .catch((e) => {
+        alert("Something went wrong");
+      })
+  };
+
+  useEffect(() => {
+    // Check local storage for favorite status on component mount
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedFavorites = storedUser.FavouriteMovies;
+    if (storedFavorites.includes(movieData._id)) {
+      setIsFavorite(true);
+    }
+  }, [movieData._id]);
+
   return (
     <Card className="h-100 bg-secondary bg-gradient text-light shadow" border="dark">
+      <Button variant="link" onClick={toggleFavorite} className="ms-2" style={{ position: "absolute", top: "10px", right: "10px", zIndex: 1 }}>
+        <FontAwesomeIcon icon={isFavorite ? solidHeart : regularHeart} size="lg" color={isFavorite ? "primary" : "primary"} />
+      </Button>
       <Card.Img variant="top" src={movieData.ImagePath} />
       <Card.Body>
         <div>
@@ -12,7 +61,9 @@ export const MovieCard = ({ movieData, onMovieClick }) => {
           <Card.Text>{movieData.Description}</Card.Text>
         </div>
         <div className="mt-4 text-center">
-          <Button variant="primary" onClick={() => { onMovieClick(movieData); }}>Open</Button>
+          <Link to={`/movies/${encodeURIComponent(movieData._id)}`}>
+            <Button variant="primary">Open</Button>
+          </Link>
         </div>
       </Card.Body>
     </Card>
@@ -36,6 +87,5 @@ MovieCard.propTypes = {
       Birth: PropTypes.string.isRequired,
       Death: PropTypes.string
     })
-  }).isRequired,
-  onMovieClick: PropTypes.func.isRequired
+  }).isRequired
 }
