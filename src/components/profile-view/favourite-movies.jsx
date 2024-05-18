@@ -15,7 +15,7 @@ export const FavouriteMovies = ({ favouriteMovieList, user, onFavouritesUpdate }
       <Row>
         {favouriteMovieList.map((movie) => {
           return (
-            <Col className="mb-4" key={movie._id} md={3}>
+            <Col className="mb-4" key={movie._id} xs={12} sm={6} md={4} lg={3}>
               <MovieCard movieData={movie} user={user} onFavouritesUpdate={onFavouritesUpdate} />
             </Col>
           )

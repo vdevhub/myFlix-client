@@ -69,7 +69,7 @@ export const MainView = () => {
   return (
     <BrowserRouter>
       <NavigationBar user={user} onLoggedOut={() => { setUser(null); setToken(null); localStorage.clear(); }} />
-      <Row className="justify-content-md-center pt-5">
+      <Row className="justify-content-center pt-5">
         <Routes>
           <Route
             path="/signup"
@@ -79,7 +79,7 @@ export const MainView = () => {
                   <Navigate to="/" />
                 ) : (
                   <Col md={5} className="m-5 text-light">
-                    <h1 className="text-center mb-5">Welcome to myFlix</h1>
+                    <h1 className="text-center mb-5"><span className="h6 fst-italic">Welcome to<br /></span> myFlix</h1>
                     <h2>Sign Up</h2>
                     <SignupView />
                   </Col>
@@ -94,7 +94,7 @@ export const MainView = () => {
                   <Navigate to="/" />
                 ) : (
                   <Col md={5} className="m-5 text-light">
-                    <h1 className="text-center mb-5">Welcome to myFlix</h1>
+                    <h1 className="text-center mb-5"><span className="h6 fst-italic">Welcome to<br /></span> myFlix</h1>
                     <h2>Login</h2>
                     <LoginView onLoggedIn={(user, token) => { setUser(user); setToken(token) }} />
                   </Col>
@@ -125,7 +125,7 @@ export const MainView = () => {
                 <div>There is no movie to display!</div>
               ) : searchTerm && filteredMovies.length > 0 ? (
                 <>
-                  <Col md={4} className="pt-5">
+                  <Col xs={9} md={6} className="pt-5">
                     <Form>
                       <Form.Control
                         type="search"
@@ -138,14 +138,14 @@ export const MainView = () => {
                   </Col>
                   <Col md={12} className="pt-5"></Col>
                   {filteredMovies.map((movie) => (
-                    <Col className="mb-4" key={movie._id} md={3}>
+                    <Col className="mb-4" key={movie._id} xs={9} sm={6} md={4} lg={3}>
                       <MovieCard movieData={movie} user={user} onFavouritesUpdate={(user) => { setUser(user) }} />
                     </Col>
                   ))}
                 </>
               ) : (
                 <>
-                  <Col md={4} className="pt-5">
+                  <Col xs={9} md={6} className="pt-5">
                     <Form>
                       <Form.Control
                         type="search"
@@ -158,7 +158,7 @@ export const MainView = () => {
                   </Col>
                   <Col md={12} className="pt-5"></Col>
                   {movies.map((movie) => (
-                    <Col className="mb-4" key={movie._id} md={3}>
+                    <Col className="mb-4" key={movie._id} xs={9} sm={6} md={4} lg={3}>
                       <MovieCard movieData={movie} user={user} onFavouritesUpdate={(user) => { setUser(user) }} />
                     </Col>
                   ))}

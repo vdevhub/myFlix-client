@@ -4,6 +4,8 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { ButtonToolbar } from "react-bootstrap";
 
 export const AccountDetails = ({ user, onAccountUpdate }) => {
   const [id] = useState(user._id);
@@ -101,8 +103,16 @@ export const AccountDetails = ({ user, onAccountUpdate }) => {
         <Form.Label>Birthdate:</Form.Label>
         <Form.Control type="date" value={profileFormData.Birthday.slice(0, 10)} onChange={(e) => handleUpdate(e)} required />
       </Form.Group>
-      <Button variant="primary" type="submit" >Update</Button>
-      <Button onClick={() => handleDeleteAccount()} variant="outline-secondary" className="mx-3" > Delete account </Button>
+      <Row className="my-4">
+        <Col>
+          <Button variant="primary" type="submit">Update</Button>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Button type="button" onClick={() => handleDeleteAccount()} variant="outline-secondary"> Delete account permanently</Button>
+        </Col>
+      </Row>
     </Form>
   )
 }
