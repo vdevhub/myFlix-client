@@ -9,8 +9,24 @@ Client application for myFlix - an app for movie enthusiasts who enjoy reading i
 - User is able to see their profile with their account information and favourite movies
 - User can add a movie to their favourites list as well as remove it from the list
 - User can update their account information
-## Build Process with Parcel
-Initiate build process with the following command using the specified file path:
+## Running the Client
+### Hosting
+The client application is hosted on [Netlify](http://localhost) and can be accessed through the provided link.
+### Build Process with Parcel
+If you'd like to run the application locally, pull this repository to your local host and initiate build process with Parcel using the following command:
 ```
 parcel src/index.html
 ```
+The open localhost:1234 in your browser.
+### Project Dependencies
+## Production
+- React
+- React Bootstrap
+- React DOM
+- React Router
+- React Router DOM
+- Bootstrap
+- Prop-Types
+- React Fontawesome (+ free-regular-svg-icons, free-solid-svg-icons)
+## Development
+- Parcel
