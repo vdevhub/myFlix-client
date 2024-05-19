@@ -91,7 +91,7 @@ export const AccountDetails = ({ user, onAccountUpdate }) => {
         <Form.Control type="text" minLength="8" value={profileFormData.Username} onChange={(e) => handleUpdate(e)} required />
       </Form.Group>
       <Form.Group className="mb-2" controlId="profileFormPassword">
-        <Form.Label>Password (add new password if you wish to change):
+        <Form.Label>Password:
         </Form.Label>
         <Form.Control type="password" minLength="10" value={profileFormData.Password} onChange={(e) => handleUpdate(e)} required />
       </Form.Group >
