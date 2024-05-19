@@ -9,7 +9,6 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
-import { FavouriteMovies } from "../profile-view/favourite-movies";
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem("user"));
