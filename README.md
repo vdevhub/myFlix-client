@@ -13,7 +13,7 @@ With this client and underlying API, this application is built with the MERN tec
 - User can update their account information
 ## Running the Client
 ### Hosting
-The client application is hosted on [Netlify](http://localhost) and can be accessed through the provided link.
+The client application is hosted on [Netlify](https://myflix-vdevhub.netlify.app/) and can be accessed through the provided link.
 ### Build Process with Parcel
 If you'd like to run the application locally, pull this repository to your local host and initiate build process with Parcel using the following command:
 ```
