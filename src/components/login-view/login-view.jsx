@@ -55,7 +55,7 @@ export const LoginView = ({ onLoggedIn }) => {
 
       <Button className="mt-4" type="submit" variant="primary">Submit</Button>
 
-      <div className="mt-3 fst-italic"><Link to="/signup" >Don't have an account?</Link></div>
+      <div className="mt-3 fst-italic"><Link to={`/signup`} >Don't have an account?</Link></div>
     </Form>
   )
 };
