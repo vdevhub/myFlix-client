@@ -25,7 +25,23 @@ export const FavouriteMovies = ({ favouriteMovieList, user, onFavouritesUpdate }
 };
 
 FavouriteMovies.propTypes = {
-  favouriteMovieList: PropTypes.arrayOf(PropTypes.string),
+  favouriteMovieList: PropTypes.arrayOf(PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    Title: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string.isRequired,
+    Featured: PropTypes.bool.isRequired,
+    Genre: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired
+    }),
+    Director: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Bio: PropTypes.string.isRequired,
+      Birth: PropTypes.string.isRequired,
+      Death: PropTypes.string
+    })
+  }).isRequired).isRequired,
   user: PropTypes.shape({
     _id: PropTypes.string.isRequired,
     Username: PropTypes.string.isRequired,
