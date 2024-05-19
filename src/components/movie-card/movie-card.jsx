@@ -17,7 +17,7 @@ export const MovieCard = ({ movieData, user, onFavouritesUpdate }) => {
   const toggleFavorite = async (event) => {
     event.preventDefault();
 
-    methodType = isFavorite ? "DELETE" : "POST";
+    const methodType = isFavorite ? "DELETE" : "POST";
 
     fetch(`https://movies-myflix-api-84dbf8740f2d.herokuapp.com/users/${user._id}/${movieData._id}`, {
       method: methodType,
