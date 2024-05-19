@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { ButtonToolbar } from "react-bootstrap";
 
 export const AccountDetails = ({ user, onAccountUpdate }) => {
   const [id] = useState(user._id);
