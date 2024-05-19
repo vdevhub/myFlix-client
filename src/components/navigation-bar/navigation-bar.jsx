@@ -1,5 +1,6 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 import logo from "../img/brand/myFlix-icon.svg";
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
@@ -50,3 +51,14 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
     </Navbar>
   );
 };
+
+NavigationBar.propTypes = {
+  user: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    FavouriteMovies: PropTypes.arrayOf(PropTypes.string)
+  }).isRequired,
+  onLoggedOut: PropTypes.func.isRequired
+}

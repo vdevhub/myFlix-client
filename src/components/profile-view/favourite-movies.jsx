@@ -1,4 +1,5 @@
 import { MovieCard } from "../movie-card/movie-card";
+import PropTypes from 'prop-types';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
@@ -22,3 +23,15 @@ export const FavouriteMovies = ({ favouriteMovieList, user, onFavouritesUpdate }
     </>
   )
 };
+
+FavouriteMovies.propTypes = {
+  favouriteMovieList: PropTypes.arrayOf(PropTypes.string),
+  user: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    FavouriteMovies: PropTypes.arrayOf(PropTypes.string)
+  }).isRequired,
+  onFavouritesUpdate: PropTypes.func.isRequired
+}

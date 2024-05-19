@@ -67,7 +67,7 @@ export const MovieCard = ({ movieData, user, onFavouritesUpdate }) => {
         </div>
       </Card.Body>
     </Card>
-  )
+  );
 };
 
 MovieCard.propTypes = {
@@ -87,5 +87,13 @@ MovieCard.propTypes = {
       Birth: PropTypes.string.isRequired,
       Death: PropTypes.string
     })
-  }).isRequired
+  }).isRequired,
+  user: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    FavouriteMovies: PropTypes.arrayOf(PropTypes.string)
+  }).isRequired,
+  onFavouritesUpdate: PropTypes.func.isRequired
 }
