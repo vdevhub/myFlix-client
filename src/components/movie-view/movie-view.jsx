@@ -15,8 +15,8 @@ export const MovieView = ({ movies }) => {
   }
 
   return (
-    <div className="bg-light m-5 rounded-3">
-      <Row className="p-5">
+    <div className="bg-light m-5 rounded-3 nomargin-rf">
+      <Row className="p-5 padding-sm">
         <Col md={6}>
           <h2 className="mb-2">{movieData.Title}</h2>
           <Row className="mb-4 text-secondary">
@@ -38,7 +38,7 @@ export const MovieView = ({ movies }) => {
             <p><strong>Description: </strong>{movieData.Genre.Description}</p>
           </Col>
         </Col>
-        <Col md={6} className="text-center">
+        <Col md={6} className="text-center mb-5">
           <img className="img-fluid" src={movieData.ImagePath} />
         </Col>
         <Col md={12}>

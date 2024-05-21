@@ -14,3 +14,12 @@ $input-color: Crimson;
   flex-direction: column;
   justify-content: space-between;
 }
+
+.nomargin-rf {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.padding-sm {
+  padding: 1.5rem !important;
+}

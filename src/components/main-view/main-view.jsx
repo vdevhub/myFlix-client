@@ -124,7 +124,7 @@ export const MainView = () => {
                 <div>There is no movie to display!</div>
               ) : searchTerm && filteredMovies.length > 0 ? (
                 <>
-                  <Col xs={9} md={6} className="pt-5">
+                  <Col xs={11} md={6} className="pt-5">
                     <Form>
                       <Form.Control
                         type="search"
@@ -137,14 +137,14 @@ export const MainView = () => {
                   </Col>
                   <Col md={12} className="pt-5"></Col>
                   {filteredMovies.map((movie) => (
-                    <Col className="mb-4" key={movie._id} xs={9} sm={6} md={4} lg={3}>
+                    <Col className="mb-4" key={movie._id} xs={11} sm={6} md={4} lg={3}>
                       <MovieCard movieData={movie} user={user} onFavouritesUpdate={(user) => { setUser(user) }} />
                     </Col>
                   ))}
                 </>
               ) : (
                 <>
-                  <Col xs={9} md={6} className="pt-5">
+                  <Col xs={11} md={6} className="pt-5">
                     <Form>
                       <Form.Control
                         type="search"
@@ -157,7 +157,7 @@ export const MainView = () => {
                   </Col>
                   <Col md={12} className="pt-5"></Col>
                   {movies.map((movie) => (
-                    <Col className="mb-4" key={movie._id} xs={9} sm={6} md={4} lg={3}>
+                    <Col className="mb-4" key={movie._id} xs={11} sm={6} md={4} lg={3}>
                       <MovieCard movieData={movie} user={user} onFavouritesUpdate={(user) => { setUser(user) }} />
                     </Col>
                   ))}

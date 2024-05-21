@@ -27587,7 +27587,7 @@ const MainView = ()=>{
                                 }, void 0) : searchTerm && filteredMovies.length > 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-                                            xs: 9,
+                                            xs: 11,
                                             md: 6,
                                             className: "pt-5",
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
@@ -27622,7 +27622,7 @@ const MainView = ()=>{
                                         }, void 0),
                                         filteredMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                                 className: "mb-4",
-                                                xs: 9,
+                                                xs: 11,
                                                 sm: 6,
                                                 md: 4,
                                                 lg: 3,
@@ -27646,7 +27646,7 @@ const MainView = ()=>{
                                 }, void 0, true) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-                                            xs: 9,
+                                            xs: 11,
                                             md: 6,
                                             className: "pt-5",
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
@@ -27681,7 +27681,7 @@ const MainView = ()=>{
                                         }, void 0),
                                         movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                                 className: "mb-4",
-                                                xs: 9,
+                                                xs: 11,
                                                 sm: 6,
                                                 md: 4,
                                                 lg: 3,
@@ -64275,9 +64275,9 @@ const MovieView = ({ movies })=>{
         return new Date(string).toLocaleDateString("en-US", options);
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "bg-light m-5 rounded-3",
+        className: "bg-light m-5 rounded-3 nomargin-rf",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
-            className: "p-5",
+            className: "p-5 padding-sm",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                     md: 6,
@@ -64454,7 +64454,7 @@ const MovieView = ({ movies })=>{
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                     md: 6,
-                    className: "text-center",
+                    className: "text-center mb-5",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                         className: "img-fluid",
                         src: movieData.ImagePath
