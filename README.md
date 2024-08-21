@@ -11,6 +11,11 @@ With this client and underlying API, this application is built with the MERN tec
 - User is able to see their profile with their account information and favourite movies
 - User can add a movie to their favourites list as well as remove it from the list
 - User can update their account information
+
+![MyFlixReactWelcome](https://github.com/user-attachments/assets/2ac5c78e-fab4-4772-a724-7199d0f4450e)
+
+![MyFlixReactMovies](https://github.com/user-attachments/assets/1ecfca1c-e32f-47a7-a013-46bcb4e8ed68)
+
 ## Running the Client
 ### Hosting
 The client application is hosted on [Netlify](https://myflix-vdevhub.netlify.app/) and can be accessed through the provided link.
