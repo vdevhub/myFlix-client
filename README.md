@@ -1,8 +1,9 @@
-# myFlix Client
-Client application for myFlix - an app for movie enthusiasts. It is based on its movie API (server-side REST API and database). The client is built using React.
-
-With this client and underlying API, this application is built with the MERN tech stack.
-## Features
+# MyFlix Client
+- An application for movie enthusiasts written in React.
+- The application leverages the [Movie API](https://github.com/vdevhub/movie-api) on the backend.
+- With this client and underlying API, this application is built with the MERN tech stack.
+  
+## Key Features
 - User is able to sign up (username, password, email, date of birth) and log in with a username and password
 - User is able to log out and also deregister
 - App returns all movies existing in the database to the user
@@ -14,17 +15,18 @@ With this client and underlying API, this application is built with the MERN tec
 
 ![MyFlixReactWelcome](https://github.com/user-attachments/assets/2ac5c78e-fab4-4772-a724-7199d0f4450e)
 
-![MyFlixReactMovies](https://github.com/user-attachments/assets/1ecfca1c-e32f-47a7-a013-46bcb4e8ed68)
+![MyFlixReactMovies](https://github.com/user-attachments/assets/21616846-a2ab-40a7-aaa5-95e97d003460)
 
 ## Running the Client
 ### Hosting
 The client application is hosted on [Netlify](https://myflix-vdevhub.netlify.app/) and can be accessed through the provided link.
 ### Build Process with Parcel
-If you'd like to run the application locally, pull this repository to your local host and initiate build process with Parcel using the following command:
+If you'd like to run the application locally, pull this repository to your local host and initiate the build process with Parcel using the following command:
 ```
 parcel src/index.html
 ```
 Then, open `localhost:1234` in your browser.
+
 ## Project Dependencies
 ### Production
 - [React](https://react.dev/)
@@ -34,7 +36,6 @@ Then, open `localhost:1234` in your browser.
 - [Bootstrap](https://getbootstrap.com/)
 - [Prop-Types](https://www.npmjs.com/package/prop-types)
 - [React Fontawesome](https://docs.fontawesome.com/web/use-with/react/) (+ free-regular-svg-icons, free-solid-svg-icons)
+
 ### Development
 - [Parcel](https://parceljs.org/)
-## API Used
-The client utilizes the [movie-api](https://github.com/vdevhub/movie-api) built as a prerequisite for this particular client.
